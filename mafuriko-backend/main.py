@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI
 from supabase import create_client, Client
-import africastalking
+from africastalking.SMS import SMSService
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -17,8 +17,7 @@ AT_API_KEY = os.getenv("AFRICASTALKING_API_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Initialize Africa's Talking
-africastalking.initialize(AT_USERNAME, AT_API_KEY)
-sms = africastalking.SMS
+sms = SMSService(username=AT_USERNAME, api_key=AT_API_KEY)
 
 # Initialize FastAPI app
 app = FastAPI(title="Mafuriko App Backend", version="0.1.0")
