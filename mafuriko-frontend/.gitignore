@@ -1,0 +1,5 @@
+/node_modules
+/src/components/figma
+/src/services/
+/src/supabase
+/src/utils 
